@@ -1,8 +1,7 @@
 /* eslint-disable */
 import React, { useState } from 'react'
-import logo from './logo.svg';
 import './App.css';
-
+import Piano from './component/piano/Piano';
 function App() {
   // ES6 destructurning 문법
   let posts = ["sclae", "chord", "diatonic"];
@@ -40,6 +39,7 @@ function App() {
             <p> { day[2] } </p>
             <hr/>
         </div>
+        <Piano/>
     </div>
   );
 }
