@@ -40,6 +40,23 @@ function App() {
             <hr/>
         </div>
         <Piano/>
+        <WhiteKey/>
+          <BlackKey/>
+        <WhiteKey/>
+          <BlackKey/>
+        <WhiteKey/>
+        <WhiteKey/>
+          <BlackKey/>
+        <WhiteKey/>
+          <BlackKey/>
+        <WhiteKey/>
+          <BlackKey/>
+        <WhiteKey/>
+        <WhiteKey/>
+          <BlackKey/>
+        <WhiteKey/>
+          <BlackKey/>
+        <WhiteKey/>
     </div>
   );
 }
