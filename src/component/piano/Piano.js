@@ -1,6 +1,23 @@
 import React, { useState } from "react";
+import './keys/Key';
 import '../../CSS/piano/Piano.css';
+import Key from "./keys/Key";
 function Piano(){
+    const dataKeyArr = [65, 87, 83, 69, 68, 70, 84, 71, 89, 72, 85, 74, 75, 79, 76, 80, 186]
+    const keyArr = ["key", "key sharp", "key", "key sharp", "key", "key", "key sharp", "key", "key sharp", "key", "key sharp", "key", "key", "key sharp", "key", "key sharp", "key"]
+    const noteNameArr = ['C', 'C#', 'D', 'D#', 'E', 'F', 'F#', 'G', 'G#', 'A', 'A#', 'B', 'C', 'C#', 'D', 'D#', 'E']
+    const hintKeyArr = ['A', 'W', 'S', 'E', 'D', 'F', 'T', 'G', 'Y', 'H', 'U', 'J', 'K', 'O', 'L', 'P', ';']
+
+    var keyDataList = []
+    for(var i = 0; i < dataKeyArr.length; i++){
+        var tmp = [];
+        tmp.push(dataKeyArr[i])
+        tmp.push(keyArr[i])
+        tmp.push(noteNameArr[i])
+        tmp.push(hintKeyArr[i])
+        keyDataList.push(tmp)
+    }
+    let [keyStates, funcKeyStates] = useState(keyDataList);
     return (
     <div>
       <section id="wrap">
@@ -8,57 +25,32 @@ function Piano(){
         <section id="main">
           <div className="nowplaying"></div>
           <div className="keys">
-            <div data-key="65" className="key" data-note="C">
-                <span className="hints">A</span>
-            </div>
-            <div data-key="87" className="key sharp" data-note="C#">
-                <span className="hints">W</span>
-            </div>
-            <div data-key="83" className="key" data-note="D">
-                <span className="hints">S</span>
-            </div>
-            <div data-key="69" className="key sharp" data-note="D#">
-                <span className="hints">E</span>
-            </div>
-            <div data-key="68" className="key" data-note="E">
-                <span className="hints">D</span>
-            </div>
-            <div data-key="70" className="key" data-note="F">
-                <span className="hints">F</span>
-            </div>
-            <div data-key="84" className="key sharp" data-note="F#">
-                <span className="hints">T</span>
-            </div>
-            <div data-key="71" className="key" data-note="G">
-                <span className="hints">G</span>
-            </div>
-            <div data-key="89" className="key sharp" data-note="G#">
-                <span className="hints">Y</span>
-            </div>
-            <div data-key="72" className="key" data-note="A">
-                <span className="hints">H</span>
-            </div>
-            <div data-key="85" className="key sharp" data-note="A#">
-                <span className="hints">U</span>
-            </div>
-            <div data-key="74" className="key" data-note="B">
-                <span className="hints">J</span>
-            </div>
-            <div data-key="75" className="key" data-note="C">
-                <span className="hints">K</span>
-            </div>
-            <div data-key="79" className="key sharp" data-note="C#">
-                <span className="hints">O</span>
-            </div>
-            <div data-key="76" className="key" data-note="D">
-                <span className="hints">L</span>
-            </div>
-            <div data-key="80" className="key sharp" data-note="D#">
-                <span className="hints">P</span>
-            </div>
-            <div data-key="186" className="key" data-note="E">
-                <span className="hints">;</span>
-            </div>
+              { () => {
+                for(var i = 0; i < dataKeyArr.length; i++){
+                  var keyState = keyStates[i]
+                  keyState.map((index, keyKind, noteName, hintKey) => (
+                      <Key dataNumKey={index} keyKind={keyKind} noteName={noteName} hintKey={hintKey}></Key>
+                  ))
+                }
+              }
+            }
+            {/* <Key dataNumKey="65" keyKind="key" noteName='C' hintKey='A'></Key>
+            <Key dataNumKey="87" keyKind="key sharp" noteName='C#' hintKey='W'></Key>
+            <Key dataNumKey="83" keyKind="key" noteName='D' hintKey='S'></Key>
+            <Key dataNumKey="69" keyKind="key sharp" noteName='D#' hintKey='E'></Key>
+            <Key dataNumKey="68" keyKind="key" noteName='E' hintKey='D'></Key>
+            <Key dataNumKey="70" keyKind="key" noteName='F' hintKey='F'></Key>
+            <Key dataNumKey="84" keyKind="key sharp" noteName='F#' hintKey='T'></Key>
+            <Key dataNumKey="71" keyKind="key" noteName='G' hintKey='G'></Key>
+            <Key dataNumKey="89" keyKind="key sharp" noteName='G#' hintKey='Y'></Key>
+            <Key dataNumKey="72" keyKind="key" noteName='A' hintKey='H'></Key>
+            <Key dataNumKey="85" keyKind="key sharp" noteName='A#' hintKey='U'></Key>
+            <Key dataNumKey="74" keyKind="key" noteName='B' hintKey='J'></Key>
+            <Key dataNumKey="75" keyKind="key" noteName='C' hintKey='K'></Key>
+            <Key dataNumKey="79" keyKind="key sharp" noteName='C#' hintKey='O'></Key>
+            <Key dataNumKey="76" keyKind="key" noteName='D' hintKey='L'></Key>
+            <Key dataNumKey="80" keyKind="key sharp" noteName='D#' hintKey='P'></Key>
+            <Key dataNumKey="186" keyKind="key" noteName='E' hintKey=';'></Key> */}
           </div>
 
           <audio data-key="65" src="http://carolinegabriel.com/demo/js-keyboard/sounds/040.wav"></audio>
@@ -82,8 +74,5 @@ function Piano(){
       </section>
     </div>
     );
-}
-function keyDown(){
-    
 }
 export default Piano;

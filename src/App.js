@@ -1,6 +1,6 @@
 /* eslint-disable */
 import React, { useState } from 'react'
-import './App.css';
+import './CSS/common/App.css';
 import Piano from './component/piano/Piano';
 function App() {
   // ES6 destructurning 문법
@@ -29,7 +29,9 @@ function App() {
         </div>
         <button onClick = { ()=>{ changeSubject() } } >버튼</button>
         <div className="list">
-            <h3> { subject[0] } <span onClick = { ()=> { funcLikeCnt(likeCnt + 1) } } >👍</span> {likeCnt} </h3>
+            <h3> { subject[0] } 
+                <span onClick = { ()=> { funcLikeCnt(likeCnt + 1) } } >👍</span> {likeCnt} 
+            </h3>
             <p> { day[0] } </p>
             <hr/>
             <h3> { subject[1] } </h3>
@@ -40,23 +42,6 @@ function App() {
             <hr/>
         </div>
         <Piano/>
-        <WhiteKey/>
-          <BlackKey/>
-        <WhiteKey/>
-          <BlackKey/>
-        <WhiteKey/>
-        <WhiteKey/>
-          <BlackKey/>
-        <WhiteKey/>
-          <BlackKey/>
-        <WhiteKey/>
-          <BlackKey/>
-        <WhiteKey/>
-        <WhiteKey/>
-          <BlackKey/>
-        <WhiteKey/>
-          <BlackKey/>
-        <WhiteKey/>
     </div>
   );
 }
