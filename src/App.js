@@ -2,6 +2,8 @@
 import React, { useState } from 'react'
 import './CSS/common/App.css';
 import Piano from './component/piano/Piano';
+import './midi/Midi';
+
 function App() {
   // ES6 destructurning 문법
   let posts = ["sclae", "chord", "diatonic"];

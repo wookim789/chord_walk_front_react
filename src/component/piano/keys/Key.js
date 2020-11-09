@@ -1,19 +1,28 @@
-import React, {useState} from "react";
+import React from "react";
 
 function Key(props){
-  const wavMap = {65 : '040.wav', 87 : '041.wav', 83 : '042.wav', 69 : '043.wav', 68 : '044.wav', 70 : '045.wav', 84 : '046.wav', 71 : '047.wav', 89 : '048.wav', 72 : '049.wav', 85 : '050.wav', 74 : '051.wav', 75 : '052.wav', 79 : '053.wav', 76 : '054.wav', 80 : '055.wav', 186 : '056.wav'}
-  const setWavFile = (key) => {
-    return "http://carolinegabriel.com/demo/js-keyboard/sounds/" + wavMap[key];
-  };
-  const soundPlay = (e) =>{
-    console.log(e.key);
-  };
+  
+  const soundPlay = (e) => { console.log(e.key) };
+  const setWavFile = setWavData;
   return(
-    <div data-key={ props.dataNumKey } className={ props.keyKind} data-note= { props.noteName }>
+    <div data-key={ props.dataNumKey } className={ props.keyKind} data-note={ props.noteName } 
+         onClick= { (e) => { 
+            console.log(e.target.querySelector('audio'))
+            e.target.querySelector('audio').play()
+            // console.log(navigator.mediaDevices.enumerateDevices());
+         }}>
       <span  className="hints"> { props.hintKey } </span>
       <audio data-key={ props.dataNumKey } src={ setWavFile(props.dataNumKey) }></audio>
     </div>
   )
 }
+
+function setWavData(key){
+  const wavMap = {48 : '040.wav', 49 : '041.wav', 50 : '042.wav', 51 : '043.wav', 52 : '044.wav', 53 : '045.wav', 54 : '046.wav', 55 : '047.wav'
+                , 56 : '048.wav', 57 : '049.wav', 58 : '050.wav', 59 : '051.wav', 60 : '052.wav', 61 : '053.wav', 62 : '054.wav', 63 : '055.wav', 64 : '056.wav'}
+  return "http://carolinegabriel.com/demo/js-keyboard/sounds/" + wavMap[key];
+}
 export default Key;
 
+
+  
