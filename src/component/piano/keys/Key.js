@@ -2,14 +2,12 @@ import React from "react";
 
 function Key(props){
   
-  const soundPlay = (e) => { console.log(e.key) };
   const setWavFile = setWavData;
   return(
     <div data-key={ props.dataNumKey } className={ props.keyKind} data-note={ props.noteName } 
          onClick= { (e) => { 
             console.log(e.target.querySelector('audio'))
             e.target.querySelector('audio').play()
-            // console.log(navigator.mediaDevices.enumerateDevices());
          }}>
       <span  className="hints"> { props.hintKey } </span>
       <audio data-key={ props.dataNumKey } src={ setWavFile(props.dataNumKey) }></audio>

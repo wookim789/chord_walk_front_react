@@ -12,7 +12,7 @@ document.addEventListener("DOMContentLoaded", function(){
     }
 
     function onMIDISuccess(midiAccess) {
-        for (var input of midiAccess.inputs.values()){
+        for (let input of midiAccess.inputs.values()){
             input.onmidimessage = getMIDIMessage;
         }
     }
@@ -21,12 +21,11 @@ document.addEventListener("DOMContentLoaded", function(){
         console.log(midiMessage);
         if (48 <= midiMessage.data[1] && midiMessage.data[1] <= 64){
 
-
-            var promise = document.querySelector(`audio[data-key="${midiMessage.data[1]}"]`).play();
+            let promise = document.querySelector(`audio[data-key="${midiMessage.data[1]}"]`).play();
 
             if (promise !== undefined) {
-                promise.then(_ => {
-                    promise.play();
+                promise.then(a => {
+                    return promise.play;
                 }).catch(error => {
                     console.log(error);
                 }); 
@@ -44,5 +43,3 @@ document.addEventListener("DOMContentLoaded", function(){
         audio.play();
     }
 });
-
-// 센터 도 48 다음 옥타브 도 64
