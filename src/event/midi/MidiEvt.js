@@ -1,3 +1,6 @@
+/** 
+ * 마스터 키보드 이벤트
+ * */
 document.addEventListener("DOMContentLoaded", function(){
     if (navigator.requestMIDIAccess) {
         alert('This browser supports WebMIDI!');
@@ -16,30 +19,29 @@ document.addEventListener("DOMContentLoaded", function(){
             input.onmidimessage = getMIDIMessage;
         }
     }
-    
+
     function getMIDIMessage(midiMessage) {
-        console.log(midiMessage);
-        if (48 <= midiMessage.data[1] && midiMessage.data[1] <= 64){
+        let cmd = midiMessage.data[0];
+        let note = midiMessage.data[1];
+        let velocity = midiMessage.data[2];
+        // eslint-disable-next-line default-case
+        if (cmd === 144 && velocity > 0){
+            noteOn(note, velocity);
+        }
+    }
+    function noteOn(note, velocity){
+        if (48 <= note && note <= 64){
+            const audio = document.querySelector(`audio[data-key="${note}"]`);
+            audio.currentTime = 0;
 
-            let promise = document.querySelector(`audio[data-key="${midiMessage.data[1]}"]`).play();
-
-            if (promise !== undefined) {
-                promise.then(a => {
+            let promise = audio.play();
+            if(promise !== undefined){
+                promise.then(x => {
                     return promise.play;
                 }).catch(error => {
                     console.log(error);
-                }); 
+                })
             }
         }
-    }
-    function playNote(keyCode){
-        const audio = document.querySelector(`audio[data-key="${keyCode}"]`);
-        const key = document.querySelector(`.key[data-key="${keyCode}"]`);
-        console.log('aaaaaaaaaa')
-        if (!key) return;
-      
-        key.classList.add("playing");
-        audio.currentTime = 0;
-        audio.play();
     }
 });

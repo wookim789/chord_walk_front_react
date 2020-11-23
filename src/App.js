@@ -2,7 +2,8 @@
 import React, { useState } from 'react'
 import './CSS/common/App.css';
 import Piano from './component/piano/Piano';
-import './midi/Midi';
+import './event/midi/MidiEvt';
+import './event/KeyboardEvt'
 
 function App() {
   // ES6 destructurning 문법

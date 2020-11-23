@@ -4,13 +4,14 @@ function Key(props){
   
   const setWavFile = setWavData;
   return(
-    <div data-key={ props.dataNumKey } className={ props.keyKind} data-note={ props.noteName } 
+    <div data-key={ props.dataNumKey } className={ props.keyKind} data-note={ props.noteName } hint-key={props.hintKey}
          onClick= { (e) => { 
-            console.log(e.target.querySelector('audio'))
-            e.target.querySelector('audio').play()
+            const audio = e.target.querySelector('audio');
+            audio.currentTime = 0;
+            audio.play()
          }}>
       <span  className="hints"> { props.hintKey } </span>
-      <audio data-key={ props.dataNumKey } src={ setWavFile(props.dataNumKey) }></audio>
+      <audio data-key={ props.dataNumKey } src={ setWavFile(props.dataNumKey) } autoPlay></audio>
     </div>
   )
 }
@@ -21,6 +22,3 @@ function setWavData(key){
   return "http://carolinegabriel.com/demo/js-keyboard/sounds/" + wavMap[key];
 }
 export default Key;
-
-
-  
