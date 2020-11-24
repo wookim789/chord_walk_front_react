@@ -4,6 +4,9 @@
 body {
     font-family: 'nanumsquare';
 }
+#currentKey{
+    color: black;
+}
 .black-nav {
     background: black;
     width: 100%;
