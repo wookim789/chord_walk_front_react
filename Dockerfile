@@ -1,4 +1,4 @@
-FROM node:6.14.8 as builder
+FROM node:8.10.0 as builder
 
 # 작업 폴더를 만들고 npm 설치
 RUN mkdir /usr/src/app
