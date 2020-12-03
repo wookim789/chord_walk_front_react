@@ -16,7 +16,7 @@ function DropBox(props) {
         const sArr = ['C', 'C#', 'D', 'D#', 'E', 'F', 'F#', 'G', 'G#', 'A', 'A#', 'B'];
         const elementArr = [];
         sArr.forEach(s => {
-            elementArr.push(<a key={s} href='#' onClick={() => {clickScale(props, s)}}>{s}</a>);
+            elementArr.push(<a key={s} href={()=> '#'} onClick={() => {clickScale(props, s)}}>{s}</a>);
         })
         return elementArr;
     }
