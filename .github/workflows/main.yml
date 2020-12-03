@@ -15,7 +15,9 @@ jobs:
         node-version: [12.2.0-alpine]
     steps:
       - uses: actions/checkout@v2
+      
       - name: use node.js ${{matrix.node-version}}
+        uses: actions/setup-node@v1
         with:
           node-version: ${{matrix.node-version}}
       
