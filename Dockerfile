@@ -10,4 +10,5 @@ RUN npm install react-scripts@3.0.1 -g
 # 소스를 작업폴더로 복사하고 앱 실행
 COPY . /app
 CMD ["npm", "install"]
-CMD ["npm", "start"]
+RUN npm run build
+# CMD ["npm", "start"]
