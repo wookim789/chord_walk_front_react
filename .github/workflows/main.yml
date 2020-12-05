@@ -52,5 +52,5 @@ jobs:
           AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_IAM_MANAGER_SECRET_ACCESS_KEY }}
           AWS_REGION: ap-northeast-2
           FILE: ./build.zip
-          # SOURCE_DIR: 'build'
           DEST_DIR: '/front'
+          # SOURCE_DIR: 'build'
