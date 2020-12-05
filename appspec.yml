@@ -3,4 +3,4 @@ os: linux
 files:
   - source:  /
     # ec2 목적지
-    destination: /home/wookim/nginx/
+    destination: /home/wookim/nginx_conf/
