@@ -56,4 +56,4 @@ jobs:
           AWS_REGION: ap-northeast-2
           # FILE: ./build.zip
           SOURCE_DIR: './artifacts'
-          DEST_DIR: '/front'
+          DEST_DIR: 'front/'
