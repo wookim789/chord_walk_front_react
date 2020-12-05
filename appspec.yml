@@ -2,4 +2,5 @@ version: 0.0
 os: linux
 files:
   - source:  /
+    # ec2 목적지
     destination: /home/wookim/nginx/
