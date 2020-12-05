@@ -31,22 +31,22 @@ jobs:
             ${{ runner.OS }}-
       
       - name: npm install
-        run: npm install  
-        
+        run: npm install
+
       - name: build
         run: npm run build
-      
+
       - name: make artifacts dir
         run: mkdir ./artifacts/
-      
+        
+      - name: copy appspec file to build folder
+        run: cp appspec.yml ./artifacts/
+
       - name: zip artifacts
         run: zip ./artifacts/build.zip ./build/*
 
       - name: check dir 
         run: ls
-      
-      - name: mv appspec file to build folder
-        run: cp appspec.yml ./build/
 
       - name: transfer to s3 for serving static
         uses: jakejarvis/s3-sync-action@master
