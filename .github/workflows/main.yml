@@ -22,10 +22,13 @@ jobs:
           node-version: ${{ matrix.node-version }}
       
       - name: npm install
-        run: npm install
+        run: npm install  
         
       - name: build
         run: npm run build
+      
+      - name: zip artifact
+        run: zip -r build.zip /build
          
       - name: transfer to s3 for serving static
         uses: jakejarvis/s3-sync-action@master
@@ -37,3 +40,4 @@ jobs:
           AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_IAM_MANAGER_SECRET_ACCESS_KEY }}
           AWS_REGION: ap-northeast-2
           SOURCE_DIR: 'build'
+          DEST_DIR: '/build'
