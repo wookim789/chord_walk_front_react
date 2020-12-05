@@ -31,7 +31,7 @@ jobs:
         run: zip build.zip ./build/*
 
       - name: check dir 
-        run: ll
+        run: ls
 
       # - name: transfer to s3 for serving static
       #   uses: jakejarvis/s3-sync-action@master
