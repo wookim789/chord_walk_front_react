@@ -42,15 +42,15 @@ jobs:
       - name: check dir 
         run: ls
 
-      # - name: transfer to s3 for serving static
-      #   uses: jakejarvis/s3-sync-action@master
-      #   with:
-      #     args: --acl public-read --follow-symlinks --delete
-      #   env:
-      #     AWS_S3_BUCKET: ${{secrets.AWS_PRODUCTION_BUCKET_NAME}}
-      #     AWS_ACCESS_KEY_ID: ${{ secrets.AWS_IAM_MANAGER_KEY_ID }}
-      #     AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_IAM_MANAGER_SECRET_ACCESS_KEY }}
-      #     AWS_REGION: ap-northeast-2
-      #     FILE: ./build.zip
-      #     # SOURCE_DIR: 'build'
-      #     DEST_DIR: '/build'
+      - name: transfer to s3 for serving static
+        uses: jakejarvis/s3-sync-action@master
+        with:
+          args: --acl public-read --follow-symlinks --delete
+        env:
+          AWS_S3_BUCKET: ${{secrets.AWS_PRODUCTION_BUCKET_NAME}}
+          AWS_ACCESS_KEY_ID: ${{ secrets.AWS_IAM_MANAGER_KEY_ID }}
+          AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_IAM_MANAGER_SECRET_ACCESS_KEY }}
+          AWS_REGION: ap-northeast-2
+          FILE: ./build.zip
+          # SOURCE_DIR: 'build'
+          DEST_DIR: '/front'
