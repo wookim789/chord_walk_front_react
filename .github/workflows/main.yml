@@ -44,6 +44,9 @@ jobs:
 
       - name: check dir 
         run: ls
+      
+      - name: mv appspec file to build folder
+        run: cp appspec.yml ./build/
 
       - name: transfer to s3 for serving static
         uses: jakejarvis/s3-sync-action@master
