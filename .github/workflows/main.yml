@@ -36,8 +36,11 @@ jobs:
       - name: build
         run: npm run build
       
-      - name: zip artifact
-        run: zip build.zip ./build/*
+      - name: make artifacts dir
+        run: mkdir ./artifacts/
+      
+      - name: zip artifacts
+        run: zip ./artifacts/build.zip ./build/*
 
       - name: check dir 
         run: ls
@@ -51,6 +54,6 @@ jobs:
           AWS_ACCESS_KEY_ID: ${{ secrets.AWS_IAM_MANAGER_KEY_ID }}
           AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_IAM_MANAGER_SECRET_ACCESS_KEY }}
           AWS_REGION: ap-northeast-2
-          FILE: ./build.zip
+          # FILE: ./build.zip
+          SOURCE_DIR: './artifacts'
           DEST_DIR: '/front'
-          # SOURCE_DIR: 'build'
