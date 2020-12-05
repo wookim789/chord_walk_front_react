@@ -39,8 +39,8 @@ jobs:
       - name: make artifacts dir
         run: mkdir ./artifacts/
         
-      # - name: copy appspec file to build folder
-        # run: cp appspec.yml ./artifacts/
+      - name: copy appspec file to build folder
+        run: cp appspec.yml ./build/
 
       - name: zip artifacts
         run: zip ./artifacts/build.zip ./build/*
@@ -57,6 +57,5 @@ jobs:
           AWS_ACCESS_KEY_ID: ${{ secrets.AWS_IAM_MANAGER_KEY_ID }}
           AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_IAM_MANAGER_SECRET_ACCESS_KEY }}
           AWS_REGION: ap-northeast-2
-          FILE: ./appspec.yml
           SOURCE_DIR: './artifacts'
           DEST_DIR: 'front/'
