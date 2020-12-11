@@ -43,7 +43,7 @@ jobs:
       #   run: cp appspec.yml ./build/
 
       - name: zip artifacts
-        run: zip ./artifacts/build.zip ./build/* appspec.yml
+        run: zip -r ./artifacts/build.zip ./build/* appspec.yml
 
       - name: check dir 
         run: ls
