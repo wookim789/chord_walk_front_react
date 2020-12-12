@@ -52,7 +52,7 @@ function DropBox(props) {
     }
 
     function requestScale(key){
-        let url = 'ec2-3-35-49-217.ap-northeast-2.compute.amazonaws.com:8000/getScale/' + key;
+        let url = 'http://ec2-3-35-49-217.ap-northeast-2.compute.amazonaws.com:8000/getScale/' + key;
         return fetch(url)
     }
 }
