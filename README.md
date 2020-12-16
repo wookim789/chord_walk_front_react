@@ -15,6 +15,9 @@
 #### 6. aws codedeploy
 #### 7. aws ec2
 
+## 체험 가능한 url
+http://ec2-3-35-49-217.ap-northeast-2.compute.amazonaws.com
+
 ## 연관 레포지토리
 https://github.com/wookim789/chode_walk_backend/blob/master/README.md
 
